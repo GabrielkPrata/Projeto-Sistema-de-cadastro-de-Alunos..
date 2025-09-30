@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8" /> <!-- Define codificação -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" /> <!-- Responsividade -->
+  <title>Sistema de Cadastro de Alunos</title> <!-- Título da página -->
+  <link rel="stylesheet" href="style.css" /> <!-- Link para o CSS -->
+</head>
+
+<body>
+  <div class="container"> <!-- Container principal -->
+    <h1>
+      <!-- Ícone e título do sistema -->
+      <img src="images/aluno.png" alt="aluno" style="width:30px; vertical-align:middle;">
+      SISTEMA DE CADASTRO DE ALUNOS
+    </h1>
+
+    <!-- Formulário de cadastro de alunos -->
+    <form id="formAluno" aria-label="Formulário de cadastro de aluno">
+      <label for="nome" class="sr-only">Nome</label> <!-- Label acessível -->
+      <input type="text" id="nome" name="nome" placeholder="Nome" required>
+      <span class="erro" id="erroNome" aria-live="polite"></span> <!-- Mensagem de erro -->
+
+      <label for="matricula" class="sr-only">Matrícula</label>
+      <input type="text" id="matricula" name="matricula" placeholder="Matrícula" required>
+      <span class="erro" id="erroMatricula" aria-live="polite"></span>
+
+      <label for="curso" class="sr-only">Curso</label>
+      <input type="text" id="curso" name="curso" placeholder="Curso" required>
+      <span class="erro" id="erroCurso" aria-live="polite"></span>
+
+      <button type="submit">Cadastrar</button> <!-- Botão de envio -->
+    </form>
+
+    <!-- Área de ações extras: busca, filtro e ordenação -->
+    <div class="acoes">
+      <input type="text" id="busca" placeholder="Buscar por nome...">
+      <select id="filtroCurso">
+        <option value="">Filtrar por curso</option>
+      </select>
+      <button id="ordenarNome" type="button">Ordenar por Nome</button>
+    </div>
+
+    <!-- Tabela de alunos -->
+    <div class="tabela-wrapper">
+      <table id="tabelaAlunos">
+        <thead>
+          <tr>
+            <th>Nome</th>
+            <th>Matrícula</th>
+            <th>Curso</th>
+          </tr>
+        </thead>
+        <tbody></tbody> <!-- Corpo da tabela será preenchido via JS -->
+      </table>
+    </div>
+
+    <!-- Estatísticas -->
+    <div class="estatisticas">
+      <h3>Estatísticas</h3>
+      <p id="totalAlunos">Total de alunos: 0</p>
+      <p id="cursosUnicos">Cursos cadastrados: 0</p>
+    </div>
+  </div>
+
+  <!-- Script principal (módulo ES6) -->
+  <script type="module" src="./main.js"></script>
+</body>
+
+</html>
